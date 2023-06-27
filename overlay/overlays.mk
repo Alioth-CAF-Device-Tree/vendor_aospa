@@ -60,5 +60,13 @@ PRODUCT_PACKAGES += \
     ParanoidLauncherOverlay \
     ImmersiveNavigationOverlay
 
+# Pixel Launcher
+ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
+PRODUCT_PACKAGES += \
+    NexusLauncherOverlay \
+    SimpleDeviceConfigOverlay \
+    PixelLauncherConfigOverlay
+endif
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aospa/overlay/static
 PRODUCT_PACKAGE_OVERLAYS += vendor/aospa/overlay/static
