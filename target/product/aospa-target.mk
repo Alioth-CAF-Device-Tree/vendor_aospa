@@ -88,6 +88,10 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, external/google-fonts/lato/fonts.mk)
 
+# GameSpace
+PRODUCT_PACKAGES += \
+    GameSpace
+
 # Gestures
 PRODUCT_PACKAGES += \
     vendor.aospa.power-service
