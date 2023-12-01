@@ -51,6 +51,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     curl
 
+# Certification
+$(call inherit-product-if-exists, vendor/certification/config.mk)
+
 # Dex2oat
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     dalvik.vm.dex2oat64.enabled=true
