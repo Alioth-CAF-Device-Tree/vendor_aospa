@@ -24,6 +24,9 @@ $(call inherit-product, device/xiaomi/alioth/device.mk)
 # Inherit from the AOSPA configuration.
 $(call inherit-product, vendor/aospa/target/product/aospa-target.mk)
 
+# Pixel Launcher
+INCLUDE_PIXEL_LAUNCHER := true
+
 PRODUCT_NAME := aospa_alioth
 PRODUCT_BRAND := POCO
 PRODUCT_DEVICE := alioth
