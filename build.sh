@@ -103,19 +103,7 @@ if [ ! -d "$DIR_ROOT/vendor/aospa" ]; then
 fi
 
 # Setup AOSPA variant if specified
-if [ $AOSPA_VARIANT ]; then
-    AOSPA_VARIANT=`echo $AOSPA_VARIANT |  tr "[:upper:]" "[:lower:]"`
-    if [ "${AOSPA_VARIANT}" = "stable" ]; then
-        export AOSPA_BUILDTYPE=STABLE
-    elif [ "${AOSPA_VARIANT}" = "beta" ]; then
-        export AOSPA_BUILDTYPE=BETA
-    elif [ "${AOSPA_VARIANT}" = "alpha" ]; then
-        export AOSPA_BUILDTYPE=ALPHA
-    else
-        echo -e "${CLR_BLD_RED} Unknown AOSPA variant - use alpha, beta or stable${CLR_RST}"
-        exit 1
-    fi
-fi
+AOSPA_BUILDTYPE=VoidUI-Staging
 
 # Setup AOSPA version if specified
 if [ $AOSPA_USER_VERSION ]; then

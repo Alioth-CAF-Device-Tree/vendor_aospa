@@ -40,17 +40,7 @@ endif
 # Alpha: Development / Test releases
 # Beta: Public releases with CI
 # Stable: Final Product | No Tagging
-ifdef AOSPA_BUILDTYPE
-  ifeq ($(AOSPA_BUILDTYPE), ALPHA)
-      AOSPA_BUILD_VARIANT := alpha
-  else ifeq ($(AOSPA_BUILDTYPE), BETA)
-      AOSPA_BUILD_VARIANT := beta
-  else ifeq ($(AOSPA_BUILDTYPE), STABLE)
-      AOSPA_BUILD_VARIANT := stable
-  endif
-else
-  AOSPA_BUILD_VARIANT := unofficial
-endif
+AOSPA_BUILD_VARIANT := VoidUI-Staging
 
 # Build Date
 BUILD_DATE := $(shell date -u '+%Y%m%d-%H%M')
@@ -59,13 +49,9 @@ BUILD_DATE := $(shell date -u '+%Y%m%d-%H%M')
 AOSPA_VERSION := $(AOSPA_MAJOR_VERSION)-
 AOSPA_DISPLAY_VERSION := $(shell V1=$(AOSPA_MAJOR_VERSION); echo -n $${V1^})
 
-ifeq ($(filter stable,$(AOSPA_BUILD_VARIANT)),)
-    AOSPA_VERSION += $(AOSPA_BUILD_VARIANT)-
-    AOSPA_DISPLAY_VERSION += $(shell V1=$(AOSPA_BUILD_VARIANT); echo -n $${V1^})
-else
-    AOSPA_VERSION += $(AOSPA_MINOR_VERSION)-
-    AOSPA_DISPLAY_VERSION += $(AOSPA_MINOR_VERSION)
-endif
+# From Stable
+AOSPA_VERSION += $(AOSPA_BUILD_VARIANT)-
+AOSPA_DISPLAY_VERSION += $(shell V1=$(AOSPA_BUILD_VARIANT); echo -n $${V1^})
 
 # Add BUILD_DATE for zip naming
 AOSPA_VERSION += $(AOSPA_BUILD)-$(BUILD_DATE)
